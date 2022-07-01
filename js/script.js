@@ -5,10 +5,12 @@ const ICON = "icon";
 
 startGame();
 
+// da o start do jogo e chama a criação das cartas
 function startGame() {
     initializeCards(game.createCardsFromTechs());
 }
 
+// cria as divs e classes do tabuleiro
 function initializeCards(cards) {
 
     let gameBoard = document.getElementById("gameBoard");
@@ -27,11 +29,13 @@ function initializeCards(cards) {
     });
 }
 
+// cria as faces da carta, front e back
 function creaCardContent(card, cardElement) {
     createCardFace(FRONT, card, cardElement);
     createCardFace(BACK, card, cardElement);
 }
 
+// cria a face da carta
 function createCardFace(face, card, element) {
 
     let cardElementFace = document.createElement('div');
@@ -49,6 +53,7 @@ function createCardFace(face, card, element) {
     element.appendChild(cardElementFace);
 }
 
+// funcao de virar a carta e verifica os pares
 function flipCard() {
     if (game.setCard(this.id)) {
         this.classList.add("flip");
@@ -61,6 +66,7 @@ function flipCard() {
                 }
             }
             else {
+                // desvira as cartas em caso elas nao serem par
                 setTimeout(() => {
                     let firstCardView = document.getElementById(game.firstCard.id);
                     let secondCardView = document.getElementById(game.secondCard.id);
@@ -74,9 +80,12 @@ function flipCard() {
     }
 }
 
+// reinicia o jogo
 function restart() {
     game.clearCards();
     startGame();
     let gameOverLayer = document.getElementById("gameOver");
     gameOverLayer.style.display = 'none';
 }
+
+

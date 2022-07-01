@@ -15,6 +15,7 @@ let game = {
     ],
     cards: null,
 
+    // seta a carta para um verificação em uma as posições
     setCard: function (id) {
         let card = this.cards.filter(card => card.id === id)[0];
         console.log(card);
@@ -35,6 +36,7 @@ let game = {
         }
     },
 
+    // chacar de as cartas são iguais
     checkMatch: function () {
         if (!this.firstCard || !this.secondCard) {
             return false;
@@ -42,22 +44,26 @@ let game = {
         return this.firstCard.icon === this.secondCard.icon;
     },
 
+    // libera as cartao que formaram par
     clearCards: function () {
         this.firstCard = null;
         this.secondCard = null;
         this.lockMode = false;
     },
 
+    // desvira as cartas que nao formaram par
     unflipeCards() {
         this.firstCard.flipped = false;
         this.secondCard.flipped = false;
         this.clearCards();
     },
 
+    // verifica se existe um gameOver olhando pro array card.flipped
     checkGameOver() {
         return this.cards.filter(card => !card.flipped).length == 0;
     },
 
+    // crear a frente das cartas
     createCardsFromTechs: function () {
         this.cards = [];
 
@@ -75,6 +81,7 @@ let game = {
         return this.cards;
     },
 
+    // crear o par de cartas de acordo com as tecnologias
     createPairFromTech: function (tech) {
         return [{
             id: this.createIdWithTech(tech),
@@ -87,10 +94,12 @@ let game = {
         }];
     },
 
+    // criar um id randomico para cada carta
     createIdWithTech: function (tech) {
         return tech + parseInt(Math.random() * 1000);
     },
 
+    // embaralhar todas as cartas
     shuffleCards: function (cards) {
         let currentIndex = this.cards.length;
         let randomIndex = 0;
