@@ -13,13 +13,20 @@
 </head>
 
 <body>
-    <div id="gameBoard"></div>
 
-    <div id="gameOver">
-        <div>
-            Parabéns!<br>Você completou o jogo!
+    <h1 class="titulo">Jogo da Memória</h1>
+
+    <div class="corpo">
+
+        <div id="gameBoard"></div>
+
+        <div id="gameOver">
+            <div>
+                Parabéns!<br>Você completou o jogo!
+            </div>
+            <button id="restart" onclick="restart()">Jogue novemente</button>
         </div>
-        <button id="restart" onclick="restart()">Jogue novemente</button>
+
     </div>
 
     <script src="./js/game.js"></script>

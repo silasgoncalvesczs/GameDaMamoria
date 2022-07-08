@@ -5,26 +5,40 @@
 }
 
 body {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     height: 100vh;
     font-family: 'Righteous', sans-serif;
     /* background-color: #959595; */
     background-color: #c7cdd3;
 }
 
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px 15px 0px;
+    color: #101c2c;
+}
+.corpo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #gameBoard {
     max-width: 700px;
     display: grid;
     grid-template: 1fr 1fr 1fr 1fr 1fr/ 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 15px;
 }
 
 .card {
-    width: 110px;
-    height: 110px;
+    width: 105px;
+    height: 105px;
     position: relative;
+    cursor: pointer;
 
     transform-style: preserve-3d;
     transition: transform 0.5s;
@@ -90,8 +104,8 @@ body {
     }
 
     .card {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
 
     .card_back {
